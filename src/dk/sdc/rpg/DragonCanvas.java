@@ -87,7 +87,7 @@ public class DragonCanvas extends View {
 		mDragons = new Bitmap[3];
 
 		mHumanBitmap = BitmapFactory
-				.decodeResource(getResources(), R.drawable.ridder);
+				.decodeResource(getResources(), R.drawable.knight);
 		mOrc = BitmapFactory.decodeResource(getResources(), R.drawable.orc);
 		Bitmap dragonBlue = BitmapFactory.decodeResource(getResources(),
 				R.drawable.dragon_blue);
@@ -142,8 +142,12 @@ public class DragonCanvas extends View {
 
 	private Creature rollChar(boolean b) {
 		Creature creature = mOpgave.createCreature(b);
-		if (creature != null) return creature;
+		if (creature != null) {
+			creature.init(getContext());
+			return creature;
+		}
 
+		int image;
 		int opp = (int) (Math.random() * 3);
 		switch (opp) {
 			case 0:
@@ -152,7 +156,7 @@ public class DragonCanvas extends View {
 						(int) (BASE_AGILITY_HUMAN + mRandom.nextGaussian() * 5),
 						(int) (BASE_STRENGTH_HUMAN + mRandom.nextGaussian() * 5),
 						(int) (BASE_INTELLIGENCE_HUMAN + mRandom.nextGaussian() * 5));
-				creature.init(mHumanBitmap);
+				image = R.drawable.knight;
 				break;
 
 			case 1:
@@ -161,7 +165,7 @@ public class DragonCanvas extends View {
 						(int) (BASE_AGILITY_ORC + mRandom.nextGaussian() * 5),
 						(int) (BASE_STRENGTH_ORC + mRandom.nextGaussian() * 5),
 						(int) (BASE_INTELLIGENCE_ORC + mRandom.nextGaussian() * 5));
-				creature.init(mOrc);
+				image = R.drawable.orc;
 				break;
 
 			case 2:
@@ -170,13 +174,15 @@ public class DragonCanvas extends View {
 						(int) (BASE_AGILITY_DRAGON + mRandom.nextGaussian() * 5),
 						(int) (BASE_STRENGTH_DRAGON + mRandom.nextGaussian() * 5),
 						(int) (BASE_INTELLIGENCE_DRAGON + mRandom.nextGaussian() * 5));
-				creature.init(mDragons[(int) (Math.random() * 3)]);
+				int[] images = {R.drawable.dragon_blue, R.drawable.dragon_red, R.drawable.dragon_green};
+				image = images[((int) (Math.random() * images.length))];
 				break;
 
 			default:
 				throw new RuntimeException("Lel exception");
 		}
-
+		creature.init(getContext());
+		creature.setBitmap(image);
 		return creature;
 	}
 

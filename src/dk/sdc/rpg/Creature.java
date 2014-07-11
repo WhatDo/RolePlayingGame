@@ -1,5 +1,6 @@
 package dk.sdc.rpg;
 
+import android.content.Context;
 import android.graphics.*;
 import android.graphics.Paint.Style;
 
@@ -15,6 +16,8 @@ public abstract class Creature {
 	private int mAgility;
 	private int mStrength;
 	private int mIntelligence;
+
+	private Context mContext;
 	
 	private Opgave mOpgave = new Opgave();
 
@@ -44,8 +47,8 @@ public abstract class Creature {
 		mHealthPaint.setStrokeWidth(0);
 	}
 
-	public void init(Bitmap bitmap) {
-		this.mBitmap = bitmap;
+	public final void init(Context context) {
+		mContext = context;
 	}
 
 	public void draw(Canvas canvas) {
@@ -54,14 +57,14 @@ public abstract class Creature {
 		mMatrix.preScale(0.2f * mFacing, 0.2f);
 		canvas.drawBitmap(mBitmap, mMatrix, null);
 		
-		float healthleft = ((float) mHealth) / mMaxHealth;
+		float health = ((float) mHealth) / mMaxHealth;
 		int w = canvas.getWidth();
 		int h = canvas.getHeight();
 		
 		if (mFacing == LEFT) {
-			mHealthBar.set((int) (w / 2 + w / 2 * (1 - healthleft)), 0, w, h / HEALTHBAR_HEIGHT);
+			mHealthBar.set((int) (w / 2 + w / 2 * (1 - health)), 0, w, h / HEALTHBAR_HEIGHT);
 		} else {
-			mHealthBar.set(0, 0, (int) (w / 2 * healthleft), h / HEALTHBAR_HEIGHT);
+			mHealthBar.set(0, 0, (int) (w / 2 * health), h / HEALTHBAR_HEIGHT);
 		}
 		
 		canvas.drawRect(mHealthBar, mHealthPaint);
@@ -128,15 +131,20 @@ public abstract class Creature {
 	}
 
 	public int getDamage() {
-		return mOpgave.calculateDamageToDeal(this);
+		return mOpgave.calculateDamage(this);
 	}
 	
 	public int getStrongDamage() {
-		return mOpgave.calculateStrongDamageToDeal(this);
+		return mOpgave.calculateStrongDamage(this);
 	}
 
 	public void takeDamage(int damage) {
 		mHealth -= mOpgave.calculateDamageTaken(this, damage);
 	}
 
+	public void setBitmap(int image) {
+		mBitmap = BitmapFactory.decodeResource(mContext.getResources(), image);
+	}
+
+	public abstract void onCreate();
 }

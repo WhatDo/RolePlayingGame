@@ -18,7 +18,7 @@ public class Opgave {
 	 * Brug metodekald som "creature.getStrength()" og
 	 * "creature.getAgility()"
 	 */
-	public int calculateDamageToDeal(Creature creature) {
+	public int calculateDamage(Creature creature) {
 		return 0;
 	}
 
@@ -47,7 +47,7 @@ public class Opgave {
 	/**
 	 * Beregn skaden der bliver givet, hvis det er et strong attack
 	 */
-	public int calculateStrongDamageToDeal(Creature character) {
+	public int calculateStrongDamage(Creature character) {
 		return 0;
 	}
 
