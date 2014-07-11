@@ -9,6 +9,6 @@ public class Human extends Creature {
 
 	@Override
 	public void onCreate() {
-
+        setBitmap(Creature.KNIGHT);
 	}
 }

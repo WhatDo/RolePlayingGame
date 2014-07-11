@@ -11,6 +11,12 @@ public abstract class Creature {
 	
 	private static final int HEALTHBAR_HEIGHT = 20;
 
+    public static final int KNIGHT = R.drawable.knight;
+    public static final int ORC = R.drawable.orc;
+    public static final int DRAGON_RED = R.drawable.dragon_red;
+    public static final int DRAGON_BLUE = R.drawable.dragon_blue;
+    public static final int DRAGON_GREEN = R.drawable.dragon_green;
+
 	private int mMaxHealth;
 	private int mHealth;
 	private int mAgility;

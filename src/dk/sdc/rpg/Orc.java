@@ -8,6 +8,6 @@ public class Orc extends Creature {
 
 	@Override
 	public void onCreate() {
-
+        setBitmap(Creature.ORC);
 	}
 }

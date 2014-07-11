@@ -3,12 +3,6 @@ package dk.sdc.rpg;
 
 public class Opgave {
 
-	public static final int KNIGHT = R.drawable.knight;
-	public static final int ORC = R.drawable.orc;
-	public static final int DRAGON_RED = R.drawable.dragon_red;
-	public static final int DRAGON_BLUE = R.drawable.dragon_blue;
-	public static final int DRAGON_GREEN = R.drawable.dragon_green;
-
 	/**
 	 * Denne metode skal returnere en instans af et creature.
 	 * Da Human, Orc og Drage nedarver fra Creature, kan i returnere en instans af dem.

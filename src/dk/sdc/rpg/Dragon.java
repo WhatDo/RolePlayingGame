@@ -8,6 +8,6 @@ public class Dragon extends Creature {
 
 	@Override
 	public void onCreate() {
-
+        setBitmap(Creature.DRAGON_BLUE);
 	}
 }
