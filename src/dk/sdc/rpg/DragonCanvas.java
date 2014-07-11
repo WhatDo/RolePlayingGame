@@ -108,8 +108,8 @@ public class DragonCanvas extends View {
 		int size = getResources().getDimensionPixelSize(R.dimen.fontsize_turn);
 		mTextPaint.setTextSize(size);
 
-		mPlayer = rollChar(true);
-		mOpponent = rollChar(false);
+		mPlayer = rollChar();
+		mOpponent = rollChar();
 		resetLevel();
 	}
 
@@ -140,8 +140,8 @@ public class DragonCanvas extends View {
 		mCreatures.add(mPlayer);
 	}
 
-	private Creature rollChar(boolean b) {
-		Creature creature = mOpgave.createCreature(b);
+	private Creature rollChar() {
+		Creature creature = mOpgave.createCreature();
 		if (creature != null) {
 			creature.init(getContext());
 			return creature;

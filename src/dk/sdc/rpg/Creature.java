@@ -22,6 +22,7 @@ public abstract class Creature {
 	private Opgave mOpgave = new Opgave();
 
 	private Bitmap mBitmap;
+	private int mImage;
 	private int mX, mY;
 
 	private Matrix mMatrix;
@@ -49,6 +50,12 @@ public abstract class Creature {
 
 	public final void init(Context context) {
 		mContext = context;
+
+		if (mImage > 0) {
+			mBitmap = BitmapFactory.decodeResource(mContext.getResources(), mImage);
+		}
+
+		onCreate();
 	}
 
 	public void draw(Canvas canvas) {
@@ -143,7 +150,11 @@ public abstract class Creature {
 	}
 
 	public void setBitmap(int image) {
-		mBitmap = BitmapFactory.decodeResource(mContext.getResources(), image);
+		if (mContext != null) {
+			mBitmap = BitmapFactory.decodeResource(mContext.getResources(), image);
+		} else {
+			mImage = image;
+		}
 	}
 
 	public abstract void onCreate();

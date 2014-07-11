@@ -3,12 +3,18 @@ package dk.sdc.rpg;
 
 public class Opgave {
 
+	public static final int KNIGHT = R.drawable.knight;
+	public static final int ORC = R.drawable.orc;
+	public static final int DRAGON_RED = R.drawable.dragon_red;
+	public static final int DRAGON_BLUE = R.drawable.dragon_blue;
+	public static final int DRAGON_GREEN = R.drawable.dragon_green;
+
 	/**
 	 * Denne metode skal returnere en instans af et creature.
 	 * Da Human, Orc og Drage nedarver fra Creature, kan i returnere en instans af dem.
 	 * F.eks "return new Dragon(50, 10, 15, 25)"
 	 */
-	public Creature createCreature(boolean player) {
+	public Creature createCreature() {
 		return null;
 	}
 
@@ -27,8 +33,8 @@ public class Opgave {
 	 * Denne metode bruges, når man tager skade. Man kan f.eks. bruge agility
 	 * til at beregne om man undgik slaget, eller som armor.
 	 */
-	public int calculateDamageTaken(Creature character, int damage) {
-		return damage;
+	public int calculateDamageTaken(Creature creature, int rawDamage) {
+		return rawDamage;
 	}
 
 
@@ -38,6 +44,7 @@ public class Opgave {
 	 *
 	 * Brug "defender.takeDamage(5)"
 	 * 		"attacker.getDamage()"
+	 * 		"defender.getHealth()"
 	 */
 	public boolean attack(Creature attacker, Creature defender) {
 		return false;
@@ -47,15 +54,14 @@ public class Opgave {
 	/**
 	 * Beregn skaden der bliver givet, hvis det er et strong attack
 	 */
-	public int calculateStrongDamage(Creature character) {
+	public int calculateStrongDamage(Creature creature) {
 		return 0;
 	}
 
 
 	/**
-	 * Denne metode definerer hvad der sker når den ene angriber den anden
-	 * med et Strong attack
-	 * Der returnerers false, så længe spillet fortsætter
+	 * Denne metode er den samme som attack. Her er der blot trykket
+	 * på strong attack knappen i stedet.
 	 */
 	public boolean strongAttack(Creature attacker, Creature defender) {
 		return false;
