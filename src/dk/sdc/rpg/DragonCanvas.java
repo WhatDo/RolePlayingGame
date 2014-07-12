@@ -130,12 +130,6 @@ public class DragonCanvas extends View {
 
 		mOpponent.setFacing(Creature.LEFT);
 
-		mOpponent.setX((int) (mWidth * 3 / 4.0f));
-		mOpponent.setY((int) (mHeight / 2.0f - mHumanBitmap.getHeight() * 0.2f / 4.0f));
-
-		mPlayer.setX((int) (mWidth / 4.0f));
-		mPlayer.setY((int) (mHeight / 2.0f - mHumanBitmap.getHeight() * 0.2f / 4.0f));
-
 		mCreatures.add(mOpponent);
 		mCreatures.add(mPlayer);
 	}
@@ -208,11 +202,6 @@ public class DragonCanvas extends View {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 		mWidth = getMeasuredWidth();
 		mHeight = getMeasuredHeight();
-
-		mPlayer.setX((int) (mWidth / 4.0f));
-		mPlayer.setY((int) (mHeight / 2.0f - mHumanBitmap.getHeight() * 0.2f / 4.0f));
-		mOpponent.setX((int) (mWidth * 3 / 4.0f));
-		mOpponent.setY((int) (mHeight / 2.0f - mHumanBitmap.getHeight() * 0.2f / 4.0f));
 	}
 
 	public void attackClicked() {

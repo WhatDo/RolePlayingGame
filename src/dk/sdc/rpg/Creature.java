@@ -66,7 +66,9 @@ public abstract class Creature {
 
 	public void draw(Canvas canvas) {
 		mMatrix.reset();
-		mMatrix.setTranslate(mX, mY);
+		int x = mFacing == RIGHT ? (int) (canvas.getWidth() / 4.0f) : (int) (canvas.getWidth() * 3 / 4.0f);
+		int y = (int) (canvas.getHeight() / 2.0f - mBitmap.getHeight() * 0.2f / 4.0f);
+		mMatrix.setTranslate(x + mX, y - mY);
 		mMatrix.preScale(0.2f * mFacing, 0.2f);
 		canvas.drawBitmap(mBitmap, mMatrix, null);
 		

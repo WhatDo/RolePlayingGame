@@ -10,4 +10,9 @@ public class Orc extends Creature {
 	public void onCreate() {
         setBitmap(Creature.ORC);
 	}
+
+	@Override
+	public void takeDamage(int damage) {
+		super.takeDamage(damage);
+	}
 }
