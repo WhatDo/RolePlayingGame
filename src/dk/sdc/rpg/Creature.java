@@ -9,7 +9,7 @@ public abstract class Creature {
 	public static final int LEFT = -1;
 	public static final int RIGHT = 1;
 	
-	private static final int HEALTHBAR_HEIGHT = 20;
+	private static final int HEALTHBAR_HEIGHT = 30;
 
     public static final int KNIGHT = R.drawable.knight;
     public static final int ORC = R.drawable.orc;
